@@ -12,10 +12,5 @@ public class LeerNombre {
             System.exit(1);
         }
 
-        try{
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
 }
