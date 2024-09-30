@@ -2,10 +2,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Ejemplo3 {
+public class Actividad1_2 {
     public static void main(String[] args) throws IOException {
         File directorio = new File("/home/usuario/PSP/PspTema1/out/production/PspTema1");
-        ProcessBuilder pb=new ProcessBuilder("/home/usuario/.jdks/openjdk-23/bin/java", "Ejemplo2");
+        ProcessBuilder pb=new ProcessBuilder("/home/usuario/.jdks/openjdk-23/bin/java", "x");
         pb.directory(directorio);
         System.out.printf("Directorio de trabajo: %s%n", pb.directory());
         Process p=pb.start();
