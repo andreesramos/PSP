@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.util.Arrays;
 
+/*Recibe un nombre por los argumentos del main y lo visualiza por pantalla*/
+
 public class LeerNombre {
 
     public static void main(String[] args) throws IOException {

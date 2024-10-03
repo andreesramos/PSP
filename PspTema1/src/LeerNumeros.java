@@ -1,23 +1,31 @@
-import java.io.InputStream;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/*Recibe dos numeros por teclado, comprueba que sean numeros y muestra su suma*/
 
 public class LeerNumeros {
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int num1=0, num2=0, res;
+    public static void main(String[] args) throws IOException {
+        InputStreamReader in = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(in);
+        int num1=0, num2=0;
 
         try{
             System.out.println("Introduce un numero: ");
-            num1=sc.nextInt();
+            num1= Integer.parseInt(br.readLine());
+            System.out.println("Numero introducido: " + num1);
             System.out.println("Introduce otro: ");
-            num2=sc.nextInt();
-
-        }catch(InputMismatchException e){
+            num2=Integer.parseInt(br.readLine());
+            System.out.println("Numero introducido: " + num2);
+            int suma=num1+num2;
+            System.out.println("Suma: " + suma);
+            in.close();
+        }catch(NumberFormatException e){
             e.printStackTrace();
         }
 
-        res=num1+num2;
-        System.out.println(res);
+
+
+
     }
 }

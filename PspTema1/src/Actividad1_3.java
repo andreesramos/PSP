@@ -1,6 +1,6 @@
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+
+/*Ejecuta LeerNumeros.java*/
 
 public class Actividad1_3 {
     public static void main(String[] args) throws IOException {
@@ -10,6 +10,15 @@ public class Actividad1_3 {
         pb.directory(directorio);
 
         Process p=pb.start();
+
+        OutputStream os=p.getOutputStream();
+        InputStreamReader in=new InputStreamReader(System.in);
+        BufferedReader br=new BufferedReader(in);
+        int num1, num2;
+
+        os.write("10\n".getBytes());
+        os.write("16\n".getBytes());
+        os.flush();
 
         try{
             InputStream is=p.getInputStream();
@@ -21,5 +30,6 @@ public class Actividad1_3 {
         }catch(Exception e){
             e.printStackTrace();
         }
+
     }
 }

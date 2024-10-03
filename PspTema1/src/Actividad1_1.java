@@ -2,6 +2,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
+/*Programa que ejecuta LeerNombre.java,, además comprueba el valor de salida del proceso al darle valor a los
+argumentos del main y cuando no.*/
+
 public class Actividad1_1 {
     public static void main(String[] args)  throws IOException{
 
