@@ -1,0 +1,6 @@
+entrada.txt
+error.txt
+out
+PspTema1.iml
+salida.txt
+src
