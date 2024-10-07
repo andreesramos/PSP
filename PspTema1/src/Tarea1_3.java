@@ -2,7 +2,7 @@ import java.io.*;
 
 /*Ejecuta LeerNumeros.java*/
 
-public class Actividad1_3 {
+public class Tarea1_3 {
     public static void main(String[] args) throws IOException {
 
         File directorio= new File("/home/usuario/PSP/PspTema1/out/production/PspTema1");
@@ -12,9 +12,6 @@ public class Actividad1_3 {
         Process p=pb.start();
 
         OutputStream os=p.getOutputStream();
-        InputStreamReader in=new InputStreamReader(System.in);
-        BufferedReader br=new BufferedReader(in);
-        int num1, num2;
 
         os.write("10\n".getBytes());
         os.write("16\n".getBytes());

@@ -4,7 +4,7 @@ import java.io.InputStream;
 
 /*Muestra los errores al intentar ejecutar un programa inexistente*/
 
-public class Actividad1_2 {
+public class Tarea1_2 {
     public static void main(String[] args) throws IOException {
         File directorio = new File("/home/usuario/PSP/PspTema1/out/production");
         ProcessBuilder pb=new ProcessBuilder("/home/usuario/.jdks/openjdk-23/bin/java", "PspTema1.x");
