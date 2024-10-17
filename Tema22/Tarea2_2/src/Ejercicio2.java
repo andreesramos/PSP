@@ -1,6 +1,5 @@
 //Inicializa los 5 hilos y los ejecuta.
-//Al usar el metodo sleep se ordenan los hilos debido al uso de tiempos largos de espera, que
-//reducen la competencia entre estos.
+//Al usar el metodo sleep se ordenan los hilos debido a
 
 public class Ejercicio2 {
     public static void main(String[] args) {
