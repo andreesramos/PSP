@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class actividad2_3 extends Applet implements ActionListener {
+public class actividad2_5 extends Applet implements ActionListener {
     private Button b1, b2;
     private Font fuente;
     private HiloContador h1;
@@ -12,10 +12,15 @@ public class actividad2_3 extends Applet implements ActionListener {
     class HiloContador extends Thread {
         long cont1;
         long cont2;
+        boolean parar = false;
 
         public HiloContador(long cont1, long cont2) {
             this.cont1 = cont1;
             this.cont2 = cont2;
+        }
+
+        public void interrumpir(){
+            parar = true;
         }
 
         public long getCont1() {
@@ -25,7 +30,7 @@ public class actividad2_3 extends Applet implements ActionListener {
 
         public void run(){
             Thread hiloActual = Thread.currentThread();
-            while(h1 == hiloActual){
+            while(h1 == hiloActual && !parar){
                 try{
                     Thread.sleep(300);
                 }catch (InterruptedException e){
@@ -35,7 +40,7 @@ public class actividad2_3 extends Applet implements ActionListener {
                 cont1++;
             }
 
-            while(h2 == hiloActual){
+            while(h2 == hiloActual && !parar){
                 try{
                     Thread.sleep(300);
                 }catch (InterruptedException e){
@@ -50,10 +55,10 @@ public class actividad2_3 extends Applet implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == b1){
-            h1.stop();
+            h1.interrumpir();
             b1.setLabel("Finalizado Hilo 1");
         }else if(e.getSource() == b2){
-            h2.stop();
+            h2.interrumpir();
             b2.setLabel("Finalizado Hilo 2");
         }
     }
@@ -62,16 +67,16 @@ public class actividad2_3 extends Applet implements ActionListener {
     }
 
     public void init(){
-        h1 = new HiloContador(0,0);
+        h1 = new HiloContador(10,100);
         h1.start();
-        h2 = new HiloContador(0,0);
+        h2 = new HiloContador(10,100);
         h2.start();
         setBackground(Color.yellow);
         add(b1=new Button("Finalizar Hilo 1"));
-        b1.addActionListener(actividad2_3.this::actionPerformed);
+        b1.addActionListener(actividad2_5.this::actionPerformed);
         fuente = new Font("Verdana", Font.BOLD, 26);
         add(b2=new Button("Finalizar Hilo 2"));
-        b2.addActionListener(actividad2_3.this::actionPerformed);
+        b2.addActionListener(actividad2_5.this::actionPerformed);
     }
 
     public void paint(Graphics g){
@@ -83,8 +88,5 @@ public class actividad2_3 extends Applet implements ActionListener {
         g.drawString("Hilo 2: " + (Long.toString((long)c2)), 80, 150);
     }
 
-    public void stop(){
-        h1=null;
-        h2=null;
-    }
+
 }
