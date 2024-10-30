@@ -67,7 +67,7 @@ public class actividad2_3 extends Applet implements ActionListener {
 
     //Controla los botones
     public void actionPerformed(ActionEvent e) {
-        //Si se alguno de los botones, se detiene el hilo correspondiente
+        //Si se pulsa alguno de los botones, se detiene el hilo correspondiente
         //y cambia el texto del botón
         if(e.getSource() == b1){
             h1.stop();
