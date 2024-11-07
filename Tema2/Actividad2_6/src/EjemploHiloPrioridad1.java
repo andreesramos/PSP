@@ -1,3 +1,5 @@
+/* No siempre el valor del contador depende de la prioridad que le hayamos asignado
+* cuando contamos con pocos hilos ejecutándose*/
 public class EjemploHiloPrioridad1 {
     public static void main(String[] args) {
         //Creacion de hilos
