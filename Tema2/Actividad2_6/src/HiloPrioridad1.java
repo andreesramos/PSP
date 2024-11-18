@@ -7,7 +7,7 @@ public class HiloPrioridad1 extends Thread {
         super(nombre);
     }
 
-    //Desvuelve el contador
+    //Devuelve el contador
     public int getContador(){
         return c;
     }
@@ -17,6 +17,7 @@ public class HiloPrioridad1 extends Thread {
         stopHilo=true;
     }
 
+    //Mientras que el hilo no este parado, incrementa el contador
     public void run(){
         while(!stopHilo){
             try{
