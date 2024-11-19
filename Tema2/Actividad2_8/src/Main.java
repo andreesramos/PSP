@@ -1,9 +1,15 @@
 public class Main extends Thread{
-    Saldo saldo=new Saldo(0);
 
-    
+    public void run(){
+
+    }
 
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        Saldo saldo=new Saldo(0);
+        Thread hilo1=new Thread(saldo);
+        Thread hilo2=new Thread(saldo);
+        Thread hilo3=new Thread(saldo);
+
+        
     }
 }
