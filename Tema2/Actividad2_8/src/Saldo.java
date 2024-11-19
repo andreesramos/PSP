@@ -1,37 +1,38 @@
 public class Saldo extends Thread{
-    private double saldo;
+    private int saldo;
 
     //Constructor
-    public Saldo(double saldo) {
+    public Saldo(int saldo) {
         this.saldo = saldo;
     }
 
-    //Metodo para obtener el saldo
-    public double getSaldo() {
+    //Metodo para obtener el saldo con sleep aleatorio
+    public synchronized int getSaldo() {
         try{
-            sleep((long)(Math.random()*2000));
+            Thread.sleep((int)(Math.random()*4000));
         }catch(InterruptedException e){
             e.printStackTrace();
         }
         return saldo;
     }
 
-    //Metodo para darle valor al saldo
-    public void setSaldo(double saldo) {
+    //Metodo para establecer el nuevo saldo con sleep aleatorio
+    public synchronized void setSaldo(int saldo) {
+        try{
+            Thread.sleep((int)(Math.random()*4000));
+        }catch(InterruptedException e) {
+            e.printStackTrace();
+        }
         this.saldo = saldo;
     }
 
     /*Aumenta el saldo con la cantidad pasada como parametro e imprime la cantidad de saldo antes y
     despues de modificarla
      */
-    public synchronized void sumar(String nom, double can){
-        System.out.println(nom + " va a ingresar " + can + ", el saldo actual es de: " + getSaldo());
+    public /*synchronized*/ void sumarSaldo(String nom, int can){
+        int saldoInicial = this.saldo;
+        this.saldo += can;
 
-        try{
-            sleep(500);
-        }catch(InterruptedException e){}
-
-        setSaldo(this.getSaldo() + can);
-        System.out.println("El saldo tras el ingreso es de: " + getSaldo());
+        System.out.println("Hilo " + nom + " añade " + can + " al saldo. Saldo inicial: " + saldoInicial + ", Saldo final: " + this.saldo);
     }
 }
