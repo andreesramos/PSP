@@ -1,4 +1,4 @@
-public class Main extends Thread{
+public class MainActividad8 extends Thread{
 
     public static void main(String[] args) {
         //Creacion objeto Saldo con saldo inicial
