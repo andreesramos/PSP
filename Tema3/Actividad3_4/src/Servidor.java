@@ -7,20 +7,21 @@ public class Servidor {
         int puerto=6000;
 
         try{
-            //ServerSocket enlazado al puerto
+            //Creacion serverSocket
             ServerSocket servidor = new ServerSocket(puerto);
             System.out.println("Esperando al cliente...");
-            Socket cliente = servidor.accept(); //Aceptar cliente
+            Socket cliente = servidor.accept(); //Aceptamos al cliente
 
-            OutputStream salida = cliente.getOutputStream();
-            DataOutputStream flujoSalida = new DataOutputStream(salida);
-            flujoSalida.writeUTF("MENSAJE ENVIADO");//Mandamos mensaje
-
-            //Recogemos el mensaje recibido y lo mostramos
+            //Leemos el mensaje recibido del cliente
             InputStream entrada = cliente.getInputStream();
             DataInputStream flujoEntrada = new DataInputStream(entrada);
+            int num=Integer.parseInt(flujoEntrada.readUTF());
+            System.out.println("Mensaje recibido del cliente: " +  num);
 
-            System.out.println("Mensaje recibido del cliente: " +  flujoEntrada.readUTF());
+            //Mandamos el cuadrado del numero recibido al cliente
+            OutputStream salida = cliente.getOutputStream();
+            DataOutputStream flujoSalida = new DataOutputStream(salida);
+            flujoSalida.writeUTF(String.valueOf(num*num));
 
             flujoSalida.close();
             flujoEntrada.close();

@@ -12,7 +12,7 @@ public class Servidor {
 
             //Mientras que no se acepten dos clientes
             while(conectados<2) {
-                //Acepamos cliente y mostramos su puerto local y remoto
+                //Aceptamos cliente y mostramos su puerto local y remoto
                 System.out.println("Esperando cliente...");
                 Socket cliente1 = servidor.accept();
                 System.out.println("Puerto local: " + cliente1.getLocalPort());
