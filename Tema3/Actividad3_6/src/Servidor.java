@@ -5,12 +5,12 @@ import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ServidorEjercicio1 {
+public class Servidor {
     public static void main(String[] args) {
         int puerto = 6000;
 
         try{
-            ServerSocket servidor = new ServerSocket(puerto);//Creacion del serverSocket
+            ServerSocket servidor = new ServerSocket(puerto); //Creacion del serverSocket
             System.out.println("Esperando al cliente...");
             Socket cliente = servidor.accept(); //Aceptamos al cliente
 
@@ -22,7 +22,7 @@ public class ServidorEjercicio1 {
             String cadena = flujoEntrada.readUTF();
 
             while(!cadena.equals("*")){ //Si no es igual a *
-                flujoSalida.writeUTF(String.valueOf(cadena.length()));//Le enviamos al cliente el numero de caracteres de la cadena
+                flujoSalida.writeUTF(cadena.toUpperCase());//Le enviamos al cliente la cadena en mayusculas
 
                 cadena = flujoEntrada.readUTF(); //Volvemos a leer
             }
@@ -33,8 +33,7 @@ public class ServidorEjercicio1 {
             flujoEntrada.close();
             cliente.close();
             servidor.close();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        }catch (IOException e){
             e.printStackTrace();
         }
     }
