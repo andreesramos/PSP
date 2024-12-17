@@ -8,27 +8,31 @@ public class ServidorActividad3_7 {
         try{
             //Creación del socket UDP
             DatagramSocket servidor = new DatagramSocket(puerto);
-            byte[] recibidos = new byte[1024]; //Almacenar datos recibidos
-            DatagramPacket pagRecibido = new DatagramPacket(recibidos, recibidos.length);
             System.out.println("Esperando al cliente...");
 
-            //Recibe un paquete UDP del cliente
-            servidor.receive(pagRecibido);
+            byte[] recibidos = new byte[1024]; //Almacenar datos recibidos
+            DatagramPacket pagRecibido = new DatagramPacket(recibidos, recibidos.length);
 
-            ByteArrayInputStream bais = new ByteArrayInputStream(recibidos);
-            ObjectInputStream entrada = new ObjectInputStream(bais);
-            Numeros numeros = (Numeros) entrada.readObject();
+            while(true){
+                //Recibe un paquete UDP del cliente
+                servidor.receive(pagRecibido);
 
-            int numeroRecibido=numeros.getNumero(); //Asignamos el atributo numero a una variable
+                ByteArrayInputStream bais = new ByteArrayInputStream(recibidos);
+                ObjectInputStream entrada = new ObjectInputStream(bais);
+                Numeros numeros = (Numeros) entrada.readObject();
 
-            //Codificacion del objeto modificado
-            ByteArrayOutputStream bs = new ByteArrayOutputStream();
-            ObjectOutputStream salida = new ObjectOutputStream(bs);
+                int numeroRecibido = numeros.getNumero();// Asignamos el atributo numero a una variable
+                if(numeroRecibido <= 0){
+                    break;
+                }
 
-            while (numeroRecibido>0){ //Mientras que sea mayor que 0
                 //Calculamos cuadrado y cubo
                 numeros.setCuadrado((long)numeroRecibido*numeroRecibido);
                 numeros.setCubo((long)numeroRecibido*numeroRecibido*numeroRecibido);
+
+                //Codificacion del objeto modificado
+                ByteArrayOutputStream bs = new ByteArrayOutputStream();
+                ObjectOutputStream salida = new ObjectOutputStream(bs);
 
                 //Mandamos al cliente el objeto
                 salida.writeObject(numeros);
@@ -39,15 +43,9 @@ public class ServidorActividad3_7 {
                 int puertoRecibido = pagRecibido.getPort();
                 DatagramPacket paqueteEnviado = new DatagramPacket(bytes, bytes.length, ip, puertoRecibido);
                 servidor.send(paqueteEnviado); //Envía el paquete al cliente
-
-                numeros=(Numeros) entrada.readObject(); //Volvemos a leer el objeto pasado por el cliente
-                numeroRecibido=numeros.getNumero();
             }
-
             System.out.println("Conexion cerrada por el cliente");
 
-            entrada.close();
-            salida.close();
             servidor.close();
 
         }catch(ClassNotFoundException | IOException e){
