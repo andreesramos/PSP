@@ -1,4 +1,6 @@
-public class Curso {
+import java.io.Serializable;
+
+public class Curso implements Serializable {
     String id;
     String descrpcion;
 
@@ -12,4 +14,9 @@ public class Curso {
 
     public void setId(String id) {this.id = id;}
     public void setDescrpcion(String descrpcion) {this.descrpcion = descrpcion;}
+
+    @Override
+    public String toString(){
+        return "Curso{" + "id=" + id + ", descrpcion=" + descrpcion + '}';
+    }
 }
