@@ -39,16 +39,7 @@ public class Main {
         String asunto = scanner.nextLine();
 
         System.out.println("Introduce el mensaje (finaliza con *): ");
-        StringBuilder mensaje = new StringBuilder();
-        String linea;
-        while (!(linea = scanner.nextLine()).equals("*")) {
-            mensaje.append(linea).append("\n");
-        }
-
-        if (mensaje.toString().trim().isEmpty()) {
-            System.out.println("No se puede enviar un mensaje vacío.");
-            System.exit(1);
-        }
+        String mensaje = scanner.nextLine();
 
         AuthenticatingSMTPClient client = new AuthenticatingSMTPClient();
 
@@ -58,59 +49,68 @@ public class Main {
             KeyManager km = kmf.getKeyManagers()[0];
 
             client.connect(server, puerto);
-            System.out.println("Conectado al servidor SMTP.");
+            System.out.println("1 - " + client.getReplyString());
 
             client.setKeyManager(km);
+
             if (!SMTPReply.isPositiveCompletion(client.getReplyCode())) {
                 client.disconnect();
-                System.err.println("Conexión rechazada.");
+                System.err.println("CONEXIÓN RECHAZADA");
                 System.exit(1);
             }
 
             client.ehlo(server);
-            System.out.println("EHLO enviado.");
+            System.out.println("2 - " + client.getReplyString());
 
-            if (necesitaTLS && client.execTLS()) {
-                System.out.println("Negociación TLS establecida.");
-            } else if (necesitaTLS) {
-                System.err.println("Fallo en la negociación TLS.");
-                System.exit(1);
-            }
+            if (client.execTLS()) {
+                System.out.println("3 - " + client.getReplyString());
 
-            if (client.auth(AuthenticatingSMTPClient.AUTH_METHOD.PLAIN, username, password)) {
-                System.out.println("Autenticación exitosa.");
+                if (client.auth(AuthenticatingSMTPClient.AUTH_METHOD.PLAIN, username, password)) {
+                    System.out.println("4 - " + client.getReplyString());
 
-                SimpleSMTPHeader cabecera = new SimpleSMTPHeader(remitente, destinatario, asunto);
-                client.setSender(remitente);
-                client.addRecipient(destinatario);
+                    SimpleSMTPHeader header = new SimpleSMTPHeader(remitente, destinatario, asunto);
 
-                Writer writer = client.sendMessageData();
-                if (writer == null) {
-                    System.err.println("Fallo al enviar datos del mensaje.");
-                    System.exit(1);
-                }
+                    client.setSender(remitente);
+                    client.addRecipient(destinatario);
+                    System.out.println("5 - " + client.getReplyString());
 
-                writer.write(cabecera.toString());
-                writer.write(mensaje.toString());
-                writer.close();
+                    Writer writer = client.sendMessageData();
 
-                if (client.completePendingCommand()) {
-                    System.out.println("Mensaje enviado con éxito.");
+                    if (writer == null) {
+                        System.out.println("FALLO AL ENVIAR");
+                        System.exit(1);
+                    }
+
+                    writer.write(header.toString());
+                    writer.write(mensaje);
+                    writer.close();
+                    System.out.println("6 - " + client.getReplyString());
+
+                    boolean exito = client.completePendingCommand();
+                    System.out.println("7 - " + client.getReplyString());
+
+                    if (!exito) {
+                        System.out.println("FALLO AL FINALIZAR TRANSACCIÓN");
+                        System.exit(1);
+                    } else {
+                        System.out.println("MENSAJE ENVIADO CON ÉXITO.");
+                    }
                 } else {
-                    System.err.println("Fallo al completar la transacción.");
+                    System.out.println("USUARIO NO AUTENTICADO");
                 }
             } else {
-                System.err.println("Autenticación fallida.");
+                System.out.println("FALLO AL EJECUTAR STARTTLS.");
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
+            System.out.println("No se pudo conectar al servidor.");
             e.printStackTrace();
         } finally {
-            try {
+            try{
                 client.disconnect();
+                System.out.println("Fin del envío.");
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
-            System.out.println("Fin del proceso.");
         }
     }
 }
