@@ -5,43 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa8d81e8-bfc9-48be-974b-3b556894e9da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Ejemplo/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Ejemplo2/src/Actividad2_5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_1/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_1/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_1/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_1/Tarea2_1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_1/src/Ejercicio1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_1/src/Hilos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_1/src/HilosEjercicio1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_1/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_2/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_2/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_2/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_2/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_2/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_2/Tarea2_2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_2/src/Ejercicio2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_2/src/Hilos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_2/src/HilosEjercicio2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_2/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_3/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_3/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_3/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_3/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_3/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_3/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_3/Tarea2_3.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_3/src/actividad2_3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_5/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_5/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_5/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_5/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_5/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_5/Tarea2_5.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tarea2_5/src/actividad2_5.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Actividad2_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Actividad2_1/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,9 +37,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/andresramos/PSP/Tema2/Ejemplo2",
+    "last_opened_file_path": "/home/andresramos/PSP/Tema2/Actividad2_3",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -90,8 +55,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
       </set>
     </attachedChunks>
   </component>
@@ -116,6 +81,7 @@
       <workItem from="1730229924452" duration="8000" />
       <workItem from="1730230931847" duration="87000" />
       <workItem from="1730231547337" duration="55000" />
+      <workItem from="1739723772946" duration="1431000" />
     </task>
     <servers />
   </component>

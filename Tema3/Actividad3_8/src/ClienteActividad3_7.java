@@ -34,8 +34,6 @@ public class ClienteActividad3_7 {
                 cliente.send(paqueteEnviado); // Envía el paquete al servidor
 
 
-
-
                 if(num>0){
                     byte[] recibidos = new byte[1024];
                     DatagramPacket pagRecibido = new DatagramPacket(recibidos, recibidos.length);
